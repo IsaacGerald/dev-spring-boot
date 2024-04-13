@@ -1,4 +1,4 @@
-package com.geecode.utils;
+package com.geecode.springcoredemo.common;
 
 import org.springframework.stereotype.Component;
 

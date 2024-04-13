@@ -1,6 +1,6 @@
 package com.geecode.springcoredemo.rest;
 
-import com.geecode.utils.Coach;
+import com.geecode.springcoredemo.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
