@@ -1,4 +1,4 @@
-package com.geecode.springcoredemo;
+package com.geecode.utils;
 
 public interface Coach {
      String getDailyWorkout();
