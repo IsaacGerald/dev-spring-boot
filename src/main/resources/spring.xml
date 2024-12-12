@@ -4,7 +4,28 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="alien" class="org.telusko.Alien">
+    <!--    <bean id="alien1" class="org.telusko.Alien" scope="prototype"></bean>-->
+    <!--    <bean id="alien1" class="org.telusko.Alien" scope="singleton"></bean>-->
 
+    <bean id="alien1" class="org.telusko.Alien">
+        <!--        <constructor-arg type="org.telusko.Laptop" ref="lap1"/>-->
+        <!--        <constructor-arg type="int" value="21"/>-->
+
+<!--        <constructor-arg index="1" ref="lap1"/>-->
+<!--        <constructor-arg index="0" value="21"/>-->
+
+<!--        One can use @ConstructorProperties({"age", "lap"}) on the constructor if you want to use naming without following sequence-->
+        <constructor-arg name="lap" ref="lap1"/>
+        <constructor-arg name="age" value="21"/>
+
+
+
+        <!--        <property name="lap" ref="lap1"/>-->
     </bean>
+
+    <bean id="lap1" class="org.telusko.Laptop"/>
+
+    <bean id="lap2" class="org.telusko.Laptop"/>
+
+
 </beans>
