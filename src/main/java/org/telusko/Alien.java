@@ -7,40 +7,40 @@ public class Alien {
     private int age;
 
     private int salary;
-    private Laptop lap;
+    private Computer com;
 
 
     public Alien(){
-        System.out.println("Object created");
+        //System.out.println("Object created");
     }
 
-    @ConstructorProperties({"age", "lap"})
-    public Alien(int age, Laptop lap) {
-        this.age = age;
-        this.lap = lap;
-    }
+//    @ConstructorProperties({"age", "lap"})
+//    public Alien(int age, Computer com) {
+//        this.age = age;
+//        this.com = com;
+//    }
 
     public int getAge() {
         return age;
     }
 
-    public Laptop getLap() {
-        return lap;
+    public Computer getCom() {
+        return com;
     }
 
-    public void setLap(Laptop lap) {
-        this.lap = lap;
+    public void setCom(Computer com) {
+        this.com = com;
     }
 
     public void setAge(int age) {
-        System.out.println("Setter called");
+        //System.out.println("Setter called");
         this.age = age;
     }
 
 
     public void code(){
         System.out.println("Coding");
-        lap.compile();
+        com.compile();
     }
 
 }

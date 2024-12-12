@@ -1,6 +1,7 @@
 package org.telusko;
 
-public class Laptop implements Computer {
+public class Desktop implements Computer{
+
 
 //    public Laptop(){
 //        System.out.println("Laptop object create");
@@ -8,6 +9,6 @@ public class Laptop implements Computer {
 
     @Override
     public void compile(){
-        System.out.println("Compiling using laptop");
+        System.out.println("Compiling using desktop");
     }
 }
