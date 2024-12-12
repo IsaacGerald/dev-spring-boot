@@ -10,7 +10,7 @@
     <bean id="alien1" class="org.telusko.Alien" autowire="byType">
 
         <property name="age" value="21"/>
-        <property name="com" ref="com2"/>
+        <property name="com" ref="com1"/>
 
         <!--        <constructor-arg type="org.telusko.Laptop" ref="lap1"/>-->
         <!--        <constructor-arg type="int" value="21"/>-->
@@ -26,7 +26,7 @@
 
     <bean id="com1" class="org.telusko.Laptop" primary="true"/>
 
-    <bean id="com2" class="org.telusko.Desktop" lazy-init="true"/>
+    <bean class="org.telusko.Desktop" lazy-init="true"/>
 
 
 </beans>
