@@ -1,17 +1,37 @@
 package org.telusko;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.telusko.config.AppConfig;
 
 public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-        Alien obj1 = context.getBean("alien1", Alien.class);
-        //obj1.setAge(21);
-        System.out.println(obj1.getAge());
-        obj1.code();
+         //Java base config
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        Desktop dt = context.getBean("desktop", Desktop.class);
+        dt.compile();
+
+
+
+
+
+
+
+
+
+
+
+
+         //XML based config
+//        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+//        Alien obj1 = context.getBean("alien1", Alien.class);
+//        obj1.setAge(21);
+//        System.out.println(obj1.getAge());
+//        obj1.code();
 
 //        Computer com = context.getBean(Computer.class);
         //Computer obj = context.getBean(Laptop.class);
