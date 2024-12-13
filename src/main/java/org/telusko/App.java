@@ -12,8 +12,16 @@ public class App
          //Java base config
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
+        Alien obj1 = context.getBean("alien1", Alien.class);
+        obj1.setAge(21);
+        System.out.println(obj1.getAge());
+        obj1.code();
+
         Desktop dt = context.getBean("desktop", Desktop.class);
         dt.compile();
+
+        Desktop dt1 = context.getBean("desktop", Desktop.class);
+        dt1.compile();
 
 
 
