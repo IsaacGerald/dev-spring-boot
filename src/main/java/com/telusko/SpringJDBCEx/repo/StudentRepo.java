@@ -3,10 +3,11 @@ package com.telusko.SpringJDBCEx.repo;
 import com.telusko.SpringJDBCEx.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Array;
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -27,14 +28,35 @@ public class StudentRepo {
 
         String sql = "insert into student (rollno, name, marks) values (?, ?, ?)";
 
-        int rows = jdbc.update(sql, s.getRollNo(), s.getName(), s.getMarks());
+        int rows = jdbc.update(sql, s.getRollno(), s.getName(), s.getMarks());
 
         System.out.println(rows + " effected");
     }
 
     public List<Student> findAll() {
 
-        List<Student> students = new ArrayList<>();
-        return students;
+//        RowMapper<Student> mapper = (ResultSet rs, int rowNum) -> {
+//
+//                Student s = new Student();
+//                s.setRollno(rs.getInt("rollno"));
+//                s.setName(rs.getString("name"));
+//                s.setMarks(rs.getInt("marks"));
+//
+//                 return s;
+//
+//        };
+
+        String sql = "select  * from student";
+
+       return jdbc.query(sql, (ResultSet rs, int rowNum) -> {
+           Student s = new Student();
+           s.setRollno(rs.getInt("rollno"));
+           s.setName(rs.getString("name"));
+           s.setMarks(rs.getInt("marks"));
+
+           return s;
+
+       });
+
     }
 }
