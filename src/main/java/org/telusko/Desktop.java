@@ -1,5 +1,8 @@
 package org.telusko;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Desktop implements Computer{
 
 
