@@ -1,5 +1,7 @@
 package org.telusko;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.beans.ConstructorProperties;
@@ -10,6 +12,7 @@ public class Alien {
     private int age;
 
     private int salary;
+
     private Computer com;
 
 
@@ -31,6 +34,8 @@ public class Alien {
         return com;
     }
 
+    @Autowired
+    @Qualifier("laptop")
     public void setCom(Computer com) {
         this.com = com;
     }
