@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -18,13 +19,14 @@ public class HomeController {
     }
 
     @RequestMapping("add")
-    public String add(@RequestParam("num1") int num_1, @RequestParam("num2") int num_2, Model model){
+    public ModelAndView add(@RequestParam("num1") int num_1, @RequestParam("num2") int num_2, ModelAndView mv){
         int result = num_1 + num_2;
        //Set result to session; gets hold of data between multiple web pages
         //session.setAttribute("result", result);
-        model.addAttribute("result", result);
+        mv.addObject("result", result);
+        mv.setViewName("result");
 
-        return "result";
+        return mv;
     }
 
 }
