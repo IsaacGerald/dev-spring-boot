@@ -29,4 +29,17 @@ public class HomeController {
         return mv;
     }
 
+    @RequestMapping("addAlien")
+    public ModelAndView addAlien(@RequestParam("aid") int aid, @RequestParam("aname") String aname, ModelAndView mv){
+        Alien alien = new Alien();
+        alien.setAid(aid);
+        alien.setAname(aname);
+        //Set result to session; gets hold of data between multiple web pages
+        //session.setAttribute("result", result);
+        mv.addObject("alien", alien);
+        mv.setViewName("result");
+
+        return mv;
+    }
+
 }
