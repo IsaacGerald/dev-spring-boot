@@ -23,9 +23,9 @@ public class SpringDataJpaExApplication {
 //		s1.setName("Navin");
 //		s1.setMarks(75);
 //
-//		s2.setRollno(102);
-//		s2.setName("Kiran");
-//		s2.setMarks(80);
+		s2.setRollno(102);
+		s2.setName("Kiran");
+		s2.setMarks(65);
 //
 //		s3.setRollno(103);
 //		s3.setName("Harsh");
@@ -35,7 +35,8 @@ public class SpringDataJpaExApplication {
 //		repo.save(s2);
 //		repo.save(s3);
 
-		System.out.println(repo.findByMarksGreaterThan(72));
+
+		repo.delete(s2);
 
 	}
 
