@@ -35,9 +35,7 @@ public class SpringDataJpaExApplication {
 //		repo.save(s2);
 //		repo.save(s3);
 
-		Optional<Student> s = repo.findById(104);
-
-		System.out.println(s.orElse(new Student()));
+		System.out.println(repo.findByMarksGreaterThan(72));
 
 	}
 
