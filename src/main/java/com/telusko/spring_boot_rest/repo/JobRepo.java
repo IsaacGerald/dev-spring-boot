@@ -11,6 +11,11 @@ import java.util.List;
 @Repository
 public interface JobRepo extends JpaRepository<JobPost, Integer> {
 
+    /**
+     * Using DSL to find keyword if contained in PostProfile or PostDesc
+     */
+    List<JobPost> findByPostProfileContainingOrPostDescContaining(String postProfile, String PostDesc);
+
 
 
 }
