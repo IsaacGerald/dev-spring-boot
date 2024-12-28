@@ -9,6 +9,10 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -56,11 +60,30 @@ public class SecurityConfig {
         //Another way with builder pattern
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.anyRequest().authenticated())
-                .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
 
         return http.build();
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService(){
+
+        UserDetails user = User
+                .withDefaultPasswordEncoder()
+                .username("Gerald")
+                .password("g@123")
+                .roles("USER")
+                .build();
+
+        UserDetails admin = User
+                .withDefaultPasswordEncoder()
+                .username("admin")
+                .password("admin@123")
+                .roles("ADMIN")
+                .build();
+
+        return new InMemoryUserDetailsManager(user, admin);
     }
 }
