@@ -31,6 +31,7 @@ public class UserController {
     @PostMapping("login")
     public String login(@RequestBody User user) {
 
+        //Verifying if username and password is correct
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
