@@ -23,4 +23,7 @@ public class UserService {
         return userRepo.save(user);
     }
 
+    public String login(User user) {
+        return null;
+    }
 }
