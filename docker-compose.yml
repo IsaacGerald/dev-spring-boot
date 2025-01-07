@@ -5,6 +5,8 @@ services:
     build: .
     ports:
       - "8061:8061"
+    networks:
+      - s-network
 
   postgres:
     image: postgres:latest
@@ -13,4 +15,10 @@ services:
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: telusko
     ports:
-      - "5433:5432"
+      - 5433:5432
+    networks:
+      - s-network
+
+networks:
+  s-network:
+    driver: bridge
