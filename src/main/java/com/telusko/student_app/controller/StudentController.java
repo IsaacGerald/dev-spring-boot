@@ -17,10 +17,16 @@ public class StudentController {
     @RequestMapping("/students")
     public List<Student> getStudents(){
         return studentRepo.findAll();
-//       return List.of(
-//               new Student(1, "Ranga", 21),
-//               new Student(2, "Ravi", 22),
-//               new Student(3, "Satish", 23)
-//       );
     }
+
+    @RequestMapping("/addStudent")
+    public void addStudent(){
+
+        Student s = new Student();
+        s.setName("Raj");
+        s.setAge(30);
+
+        studentRepo.save(s);
+    }
+
 }
